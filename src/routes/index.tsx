@@ -19,13 +19,13 @@ export const Route = createFileRoute("/")({
 });
 
 const tours = [
-  { name: "Ladakh", tag: "High-altitude", days: "7N · 8D", price: "₹24,999", img: heroImg, blurb: "Pangong, Nubra & Khardung La road trip." },
-  { name: "Himachal", tag: "Trek", days: "5N · 6D", price: "₹14,499", img: himachalImg, blurb: "Hampta Pass & Kasol sunrise treks." },
-  { name: "Rajasthan", tag: "Heritage", days: "6N · 7D", price: "₹19,999", img: rajasthanImg, blurb: "Jaipur, Jaisalmer dunes & Udaipur lakes." },
-  { name: "Kerala", tag: "Leisure", days: "4N · 5D", price: "₹16,499", img: keralaImg, blurb: "Alleppey houseboats & Munnar greens." },
-  { name: "Goa", tag: "Beach", days: "3N · 4D", price: "₹9,999", img: goaImg, blurb: "Sunset shacks, scooter trails & nights out." },
-  { name: "Rishikesh", tag: "Adventure", days: "2N · 3D", price: "₹7,499", img: rishikeshImg, blurb: "White-water rafting & cliff jumps." },
-  { name: "Meghalaya", tag: "Offbeat", days: "5N · 6D", price: "₹21,999", img: meghalayaImg, blurb: "Living root bridges & Shillong vibes." },
+  { name: "Ladakh", tag: "High-altitude", days: "7N · 8D",img: heroImg, blurb: "Pangong, Nubra & Khardung La road trip." },
+  { name: "Himachal", tag: "Trek", days: "5N · 6D", img: himachalImg, blurb: "Hampta Pass & Kasol sunrise treks." },
+  { name: "Rajasthan", tag: "Heritage", days: "6N · 7D",img: rajasthanImg, blurb: "Jaipur, Jaisalmer dunes & Udaipur lakes." },
+  { name: "Kerala", tag: "Leisure", days: "4N · 5D",img: keralaImg, blurb: "Alleppey houseboats & Munnar greens." },
+  { name: "Goa", tag: "Beach", days: "3N · 4D",img: goaImg, blurb: "Sunset shacks, scooter trails & nights out." },
+  { name: "Rishikesh", tag: "Adventure", days: "2N · 3D",img: rishikeshImg, blurb: "White-water rafting & cliff jumps." },
+  { name: "Meghalaya", tag: "Offbeat", days: "5N · 6D",img: meghalayaImg, blurb: "Living root bridges & Shillong vibes." },
 ];
 
 function Landing() {
