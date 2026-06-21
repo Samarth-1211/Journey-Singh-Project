@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import logoAsset from "@/assets/journey-singh-logo.asset.json";
 import heroImg from "@/assets/hero-ladakh.jpg";
 import keralaImg from "@/assets/tour-kerala.jpg";
 import rajasthanImg from "@/assets/tour-rajasthan.jpg";
@@ -8,7 +7,7 @@ import himachalImg from "@/assets/tour-himachal.jpg";
 import goaImg from "@/assets/tour-goa.jpg";
 import rishikeshImg from "@/assets/tour-rishikesh.jpg";
 import meghalayaImg from "@/assets/tour-meghalaya.jpg";
-
+import logoAsset from "../assets/JourneySingh.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -47,7 +46,7 @@ function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 flex items-center justify-between h-20">
         <a href="#" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="Journey Singh" className="h-12 w-12 rounded-full ring-2 ring-accent/40 object-cover" />
+          <img src={logoAsset} alt="Journey Singh" className="h-12 w-12 rounded-full ring-2 ring-accent/40 object-cover" />
           <div className="leading-tight hidden sm:block">
             <div className="font-display font-bold text-lg text-primary">Journey Singh</div>
             <div className="text-[10px] tracking-[0.25em] text-accent font-semibold">TREK • TRAVEL • LEISURE</div>
@@ -147,7 +146,7 @@ function Hero() {
         <div className="hidden lg:block absolute right-8 top-32">
           <div className="relative animate-float-slow">
             <div className="absolute inset-0 rounded-full bg-accent/30 blur-3xl scale-110 animate-spin-slow" />
-            <img src={logoAsset.url} alt="" className="relative w-56 h-56 rounded-full ring-4 ring-white/40 shadow-2xl object-cover" />
+            <img src={logoAsset} alt="" className="relative w-56 h-56 rounded-full ring-4 ring-white/40 shadow-2xl object-cover" />
           </div>
         </div>
       </div>
@@ -235,15 +234,33 @@ function Footer() {
   return (
     <footer className="border-t border-border bg-secondary/50">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
+        
         <div className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="" className="h-9 w-9 rounded-full" />
-          <span className="text-sm text-muted-foreground">© {new Date().getFullYear()} Journey Singh. Trek • Travel • Leisure.</span>
+          <img
+            src={logoAsset}
+            alt="Journey Singh"
+            className="h-9 w-9 rounded-full object-cover"
+          />
+          <div>
+            <span className="text-sm text-muted-foreground block">
+              © {new Date().getFullYear()} Journey Singh. Trek • Travel • Leisure.
+            </span>
+
+            <a
+              href="tel:+919876543210"
+              className="text-sm text-accent hover:underline"
+            >
+              📞 +91 9009503668
+            </a>
+          </div>
         </div>
+
         <div className="flex gap-5 text-sm text-muted-foreground">
           <a href="#" className="hover:text-accent">Instagram</a>
           <a href="#" className="hover:text-accent">YouTube</a>
           <a href="#" className="hover:text-accent">WhatsApp</a>
         </div>
+
       </div>
     </footer>
   );
