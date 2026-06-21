@@ -27,7 +27,7 @@ const tours = [
   { name: "Rishikesh", tag: "Adventure", days: "2N · 3D",img: rishikeshImg, blurb: "White-water rafting & cliff jumps." },
   { name: "Meghalaya", tag: "Offbeat", days: "5N · 6D",img: meghalayaImg, blurb: "Living root bridges & Shillong vibes." },
 ];
-
+//Landing 
 function Landing() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
