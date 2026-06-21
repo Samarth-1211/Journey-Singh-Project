@@ -41,7 +41,7 @@ function Landing() {
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-  const links = ["Tours", "Treks", "Stories", "Contact"];
+  const links = [];
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/60">
       <div className="mx-auto max-w-7xl px-5 lg:px-8 flex items-center justify-between h-20">
@@ -49,7 +49,7 @@ function Navbar() {
           <img src={logoAsset} alt="Journey Singh" className="h-12 w-12 rounded-full ring-2 ring-accent/40 object-cover" />
           <div className="leading-tight hidden sm:block">
             <div className="font-display font-bold text-lg text-primary">Journey Singh</div>
-            <div className="text-[10px] tracking-[0.25em] text-accent font-semibold">TREK • TRAVEL • LEISURE</div>
+            <div className="text-[10px] tracking-[0.25em] text-accent font-semibold"></div>
           </div>
         </a>
         <nav className="hidden md:flex items-center gap-8">
@@ -61,10 +61,15 @@ function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <button className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-all">
-            Plan a Trip
-            <span aria-hidden>→</span>
-          </button>
+        <a
+        href="https://wa.me/919876543210?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20know%20more%20about%20your%20trips."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:bg-accent hover:text-accent-foreground transition-all"
+      >
+        Contact Us
+        <span aria-hidden>→</span>
+      </a>
           <button onClick={() => setOpen(!open)} className="md:hidden p-2 text-primary" aria-label="Menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
           </button>
@@ -127,10 +132,17 @@ function Hero() {
               Explore Tours
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
-            <a href="#" className="inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 backdrop-blur px-6 py-4 font-medium text-white hover:bg-white/20 transition-colors">
-              <span className="grid place-items-center w-8 h-8 rounded-full bg-accent text-accent-foreground">▶</span>
-              Watch the teaser
-            </a>
+            <a
+            href="https://wa.me/919876543210?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20plan%20a%20trip."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 backdrop-blur px-6 py-4 font-medium text-white hover:bg-white/20 transition-colors"
+          >
+            <span className="grid place-items-center w-8 h-8 rounded-full bg-accent text-accent-foreground">
+              📱
+            </span>
+            Let's Plan Your Trip - Contact Us Now
+          </a>
           </div>
 
           <div className="mt-14 grid grid-cols-3 gap-6 max-w-xl">
