@@ -133,7 +133,7 @@ function Hero() {
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
             <a
-            href="https://wa.me/919876543210?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20plan%20a%20trip."
+            href="https://wa.me/+919009503668?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20plan%20a%20trip."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 backdrop-blur px-6 py-4 font-medium text-white hover:bg-white/20 transition-colors"
@@ -259,7 +259,7 @@ function Footer() {
             </span>
 
             <a
-              href="tel:+919876543210"
+              href="tel:+919009503668"
               className="text-sm text-accent hover:underline"
             >
               📞 +91 9009503668
