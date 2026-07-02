@@ -2,6 +2,16 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-ladakh.jpg";
 import logoAsset from "@/assets/JourneySingh.jpg";
+import {
+  CheckCircle2,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  Instagram,
+  Youtube,
+  MessageCircle,
+} from "lucide-react";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
@@ -31,6 +41,18 @@ export const Route = createFileRoute("/")({
 });
 
 /* ------------------------------------------------------------------ */
+/* Contact details — replace with the real values, then this is the   */
+/* single source of truth for Hero CTA, Contact section & Footer.     */
+/* ------------------------------------------------------------------ */
+const CONTACT = {
+  phoneDisplay: "+91 90095 03668",
+  phoneTel: "+919009503668",
+  email: "hello@journeysingh.com",
+  website: "journeysingh.com",
+  location: "Based in India, exploring everywhere",
+};
+
+/* ------------------------------------------------------------------ */
 /* Page                                                                */
 /* ------------------------------------------------------------------ */
 
@@ -40,7 +62,9 @@ function Landing() {
       <Navbar />
       <Hero />
       <AboutSection />
+      <WhyChooseUs />
       <Tours />
+      <Contact />
       <Footer />
     </div>
   );
@@ -87,13 +111,13 @@ function Hero() {
               <span className="absolute inline-flex h-full w-full rounded-full bg-accent animate-pulse-ring" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
-            Launching Soon
+            Now Booking
           </span>
 
           <h1 className="mt-6 font-display font-extrabold text-white text-balance text-5xl sm:text-7xl md:text-8xl leading-[0.95]">
-            Coming{" "}
+            Journeys worth{" "}
             <span className="relative inline-block">
-              <span className="font-script font-bold text-accent">soon</span>
+              <span className="font-script font-bold text-accent">living</span>
               <svg className="absolute -bottom-3 left-0 w-full" viewBox="0 0 200 12" fill="none">
                 <path
                   d="M2 8 Q 100 -2 198 6"
@@ -104,12 +128,12 @@ function Hero() {
               </svg>
             </span>
             <br />
-            <span className="text-white/95">stories worth packing for.</span>
+            <span className="text-white/95">not just dreaming about.</span>
           </h1>
 
           <p className="mt-8 text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed">
             Treks that test you. Road trips that surprise you. Leisure that resets you. Journey
-            Singh is curating India's most-loved escapes — built for the young & restless.
+            Singh curates India's most-loved escapes — built for the young & restless.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -121,7 +145,7 @@ function Hero() {
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </Link>
             <a
-              href="https://wa.me/919009503668?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20plan%20a%20trip."
+              href={`https://wa.me/${CONTACT.phoneTel}?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20plan%20a%20trip.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 backdrop-blur px-6 py-4 font-medium text-white hover:bg-white/20 transition-colors"
@@ -169,6 +193,92 @@ function Hero() {
           fill="currentColor"
         />
       </svg>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Why Choose Us                                                       */
+/* ------------------------------------------------------------------ */
+
+const REASONS = [
+  {
+    title: "Real travel experience",
+    desc: "Experienced travelers who understand what actually matters on the road.",
+  },
+  {
+    title: "Personalized planning",
+    desc: "Every itinerary is built around how you actually want to travel.",
+  },
+  {
+    title: "Family & group friendly",
+    desc: "Packages that work for solo wanderers, families, and big groups alike.",
+  },
+  {
+    title: "Every kind of trip",
+    desc: "Adventure, trekking, leisure & spiritual tours — pick your pace.",
+  },
+  {
+    title: "Fair, honest pricing",
+    desc: "Premium experiences without the premium markup.",
+  },
+  {
+    title: "Support that doesn't disappear",
+    desc: "Dedicated help before you leave, and while you're out there.",
+  },
+  {
+    title: "Trusted, firsthand picks",
+    desc: "Every recommendation comes from a trip we've actually taken.",
+  },
+];
+
+function WhyChooseUs() {
+  return (
+    <section className="relative py-24 md:py-32 bg-secondary/40">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="max-w-2xl"
+        >
+          <div className="text-accent font-semibold text-sm tracking-[0.3em] uppercase">
+            Why travel with us
+          </div>
+          <h2 className="mt-3 font-display text-4xl md:text-6xl font-extrabold text-primary text-balance">
+            Why choose{" "}
+            <span className="font-script text-accent">Journey Singh?</span>
+          </h2>
+          <p className="mt-4 text-muted-foreground text-lg">
+            Not a booking engine — a small team of people who've actually done
+            the trips they sell.
+          </p>
+        </motion.div>
+
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {REASONS.map((r, i) => (
+            <motion.div
+              key={r.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
+              className="rounded-2xl bg-card border border-border p-6 hover:border-accent/50 hover:shadow-soft transition-all"
+            >
+              <span className="grid place-items-center w-10 h-10 rounded-full bg-accent/15 text-accent">
+                <CheckCircle2 className="w-5 h-5" />
+              </span>
+              <h3 className="mt-4 font-display font-bold text-lg text-primary">
+                {r.title}
+              </h3>
+              <p className="mt-1.5 text-muted-foreground text-sm leading-relaxed">
+                {r.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -261,6 +371,158 @@ function Tours() {
             </form>
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Contact                                                              */
+/* ------------------------------------------------------------------ */
+
+const SOCIALS = [
+  { label: "Instagram", href: "#", Icon: Instagram },
+  { label: "YouTube", href: "#", Icon: Youtube },
+  { label: "WhatsApp", href: `https://wa.me/${CONTACT.phoneTel}`, Icon: MessageCircle },
+];
+
+function Contact() {
+  return (
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left: pitch */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-6"
+          >
+            <div className="text-accent font-semibold text-sm tracking-[0.3em] uppercase">
+              Contact us
+            </div>
+            <h2 className="mt-3 font-display text-4xl md:text-6xl font-extrabold text-primary text-balance">
+              Let's plan your{" "}
+              <span className="font-script text-accent">next adventure.</span>
+            </h2>
+            <p className="mt-5 text-muted-foreground text-lg max-w-lg leading-relaxed">
+              Ready to explore India and beyond? Get in touch with our travel
+              experts and let us create a customized itinerary that perfectly
+              suits your needs.
+            </p>
+
+            <p className="mt-8 font-script text-2xl md:text-3xl text-primary/80">
+              Because life's best stories are written while travelling.
+            </p>
+
+            <div className="mt-8">
+              <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground/70 mb-3">
+                Follow along
+              </div>
+              <div className="flex gap-3">
+                {SOCIALS.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-border text-primary/70 transition-colors hover:border-accent hover:bg-accent hover:text-accent-foreground"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Travel inspiration, destination guides & exclusive offers —
+                start your journey today.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right: contact card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="lg:col-span-6"
+          >
+            <div className="relative overflow-hidden rounded-3xl bg-primary text-primary-foreground p-8 md:p-10">
+              <div className="absolute -right-10 -top-10 w-64 h-64 rounded-full bg-accent/40 blur-3xl" />
+              <div className="absolute -left-16 bottom-0 w-56 h-56 rounded-full bg-accent/20 blur-3xl" />
+
+              <div className="relative">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={logoAsset}
+                    alt="Journey Singh"
+                    className="h-11 w-11 rounded-full object-cover ring-2 ring-accent/40"
+                  />
+                  <span className="font-display font-bold text-lg">
+                    Journey Singh Travel & Leisure
+                  </span>
+                </div>
+
+                <div className="mt-8 space-y-5">
+                  <div className="flex items-start gap-3">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
+                      <MapPin className="h-4 w-4" />
+                    </span>
+                    <div className="pt-1.5 text-sm text-primary-foreground/80">
+                      {CONTACT.location}
+                    </div>
+                  </div>
+
+                  <a
+                    href={`tel:${CONTACT.phoneTel}`}
+                    className="flex items-center gap-3 text-primary-foreground/90 hover:text-accent transition-colors"
+                  >
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
+                      <Phone className="h-4 w-4" />
+                    </span>
+                    <span className="text-sm font-medium">
+                      Call / WhatsApp: {CONTACT.phoneDisplay}
+                    </span>
+                  </a>
+
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    className="flex items-center gap-3 text-primary-foreground/90 hover:text-accent transition-colors"
+                  >
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
+                      <Mail className="h-4 w-4" />
+                    </span>
+                    <span className="text-sm font-medium">{CONTACT.email}</span>
+                  </a>
+
+                  <a
+                    href={`https://${CONTACT.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-primary-foreground/90 hover:text-accent transition-colors"
+                  >
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
+                      <Globe className="h-4 w-4" />
+                    </span>
+                    <span className="text-sm font-medium">{CONTACT.website}</span>
+                  </a>
+                </div>
+
+                <a
+                  href={`https://wa.me/${CONTACT.phoneTel}?text=Hi%20Journey%20Singh,%20I%20would%20like%20to%20plan%20a%20trip.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-9 flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 font-semibold text-accent-foreground hover:scale-[1.02] transition-transform"
+                >
+                  Start your journey today
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
