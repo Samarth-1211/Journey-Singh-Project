@@ -15,7 +15,7 @@ import {
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
-import AboutSection from "@/routes/-about";
+import AboutSection from "@/components/about";
 
 // Shared data + card pulled directly from the packages route so there's
 // one source of truth — update PACKAGES there, both pages stay in sync.
