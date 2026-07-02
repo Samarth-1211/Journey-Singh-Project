@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import logoAsset from "@/assets/JourneySingh.jpg";
-
+import { Link } from "@tanstack/react-router";
 /**
  * Nav links for a travel agency landing page.
  * NOTE: "#about", "#gallery" and "#testimonials" don't exist on the page yet —
@@ -9,7 +9,7 @@ import logoAsset from "@/assets/JourneySingh.jpg";
  * Until then they simply won't scroll (no error), so it's safe to ship now.
  */
 const NAV_LINKS = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   { label: "Destinations", href: "/packages" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
@@ -78,7 +78,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-500 ${
+    className={`fixed inset-x-0 top-0 z-[9999] transition-all duration-500 ${
         scrolled
           ? "backdrop-blur-xl bg-background/80 border-b border-border/60 shadow-soft"
           : "backdrop-blur-md bg-background/30 border-b border-transparent"
@@ -86,11 +86,14 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
-        <a
-          href="#"
-          onClick={() => handleLinkClick("#")}
-          className="flex items-center gap-3 shrink-0"
-        >
+        <Link
+            to="/"
+            onClick={() => {
+                setOpen(false);
+                setActive("/");
+            }}
+            className="flex items-center gap-3 shrink-0"
+            >
           <motion.img
             whileHover={{ rotate: 8, scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
@@ -106,7 +109,7 @@ export default function Navbar() {
               Trek · Travel · Leisure
             </div>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
