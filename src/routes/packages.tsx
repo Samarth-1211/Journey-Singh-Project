@@ -24,7 +24,7 @@ import {
   Heart,
 } from "lucide-react";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import Footer from "@/components/Footer";
 
 import goaImg from "@/assets/tour-goa.jpg";
